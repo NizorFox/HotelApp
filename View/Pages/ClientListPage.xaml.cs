@@ -32,5 +32,15 @@ namespace HotelApp.View.Pages
 		{
 			this.NavigationService.Navigate(new MainMenuPage());
 		}
+
+        private void LoginManFilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TypeManagerFilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

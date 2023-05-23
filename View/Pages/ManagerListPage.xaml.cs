@@ -26,17 +26,17 @@ namespace HotelApp.View.Pages
     {
 
         Core db = new Core();
-        public ManagerListPage()
+		List<users> user;
+		int dofilt;
+
+		public ManagerListPage()
         {
             InitializeComponent();
+			FilterData();
 			ManagerListView.ItemsSource = db.context.users.ToList();
 
 		}
 
-        private void ManagerListUpdate_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void ManagerListBack_Click(object sender, RoutedEventArgs e)
         {
@@ -58,12 +58,36 @@ namespace HotelApp.View.Pages
 
 		private void TypeManagerFilterComboBoxChanged(object sender, SelectionChangedEventArgs e)
 		{
+            dofilt = Convert.ToInt32(TypeManagerFilterComboBox.SelectedValue);
+            FilterData();
+        }
 
-		}
 
-		private void LoginManFilterTextChanged(object sender, TextChangedEventArgs e)
-		{
 
-		}
-	}
+        private void FilterData()
+        {
+            var logfilt = LoginManFilterTextBox.Text.ToLower();
+            user = db.context.users.ToList();
+            if (logfilt != String.Empty)
+            {
+                user = user.Where(x => x.login.ToLower().StartsWith(logfilt)).ToList();
+            }
+            else
+            {
+                user = user.ToList();
+            }
+            if (TypeManagerFilterComboBox.SelectedItem != null)
+            {
+                user = user.Where(x => x.id_users_type == dofilt).ToList();
+
+            }
+
+            ManagerListView.ItemsSource = user;
+        }
+
+        private void LoginManFilterTextChanged(object sender, TextChangedEventArgs e)
+        {
+            FilterData();
+        }
+    }
 }

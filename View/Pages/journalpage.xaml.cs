@@ -50,11 +50,6 @@ namespace HotelApp.View.Pages
            
         }
 
-        private void JournalFilterUpdate_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         
 
         private void LoginFilterTextChanged(object sender, TextChangedEventArgs e)
