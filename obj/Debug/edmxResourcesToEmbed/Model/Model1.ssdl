@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище HotelBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="do_table">
+    <Key>
+      <PropertyRef Name="id_do_table" />
+    </Key>
+    <Property Name="id_do_table" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="do_type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="gender_table">
+    <Key>
+      <PropertyRef Name="gend_id" />
+    </Key>
+    <Property Name="gend_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hardware_table">
+    <Key>
+      <PropertyRef Name="hardware_id" />
+    </Key>
+    <Property Name="hardware_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hardware_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="hardware_count" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="number_room" Type="varchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hotelroom_classes">
+    <Key>
+      <PropertyRef Name="id_class" />
+    </Key>
+    <Property Name="id_class" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="class" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hotelrooms">
+    <Key>
+      <PropertyRef Name="number_room" />
+    </Key>
+    <Property Name="number_room" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="places" Type="int" Nullable="false" />
+    <Property Name="rooms" Type="int" Nullable="false" />
+    <Property Name="id_class" Type="int" Nullable="false" />
+    <Property Name="bathroom" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="journal_table">
+    <Key>
+      <PropertyRef Name="id_journal_table" />
+    </Key>
+    <Property Name="id_journal_table" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login_users" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="journal_datetime" Type="datetime" />
+    <Property Name="id_do_table" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="listresidents">
+    <Key>
+      <PropertyRef Name="id_listres" />
+    </Key>
+    <Property Name="passport" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="number_room" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="settlement_date" Type="datetime" Nullable="false" />
+    <Property Name="eviction_date" Type="datetime" Nullable="false" />
+    <Property Name="id_listres" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="residents">
+    <Key>
+      <PropertyRef Name="passport" />
+    </Key>
+    <Property Name="passport" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="birth" Type="datetime" Nullable="false" />
+    <Property Name="gend_id" Type="int" Nullable="false" />
+    <Property Name="address" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="number_phone" Type="varchar" MaxLength="11" />
+    <Property Name="scanpass" Type="char" MaxLength="255" Nullable="false" />
+    <Property Name="destination" Type="nvarchar" MaxLength="255" />
+    <Property Name="info" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="room_hardware">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="hardware_id" Type="int" />
+    <Property Name="number_room" Type="varchar" MaxLength="4" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="login" />
+    </Key>
+    <Property Name="last_name" Type="nvarchar" MaxLength="20" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="20" />
+    <Property Name="login" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="pass" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="id_users_type" Type="int" />
+  </EntityType>
+  <EntityType Name="users_type">
+    <Key>
+      <PropertyRef Name="id_users_type" />
+    </Key>
+    <Property Name="id_users_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_hardware_table_hotelrooms">
+    <End Role="hotelrooms" Type="Self.hotelrooms" Multiplicity="1" />
+    <End Role="hardware_table" Type="Self.hardware_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hotelrooms">
+        <PropertyRef Name="number_room" />
+      </Principal>
+      <Dependent Role="hardware_table">
+        <PropertyRef Name="number_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hotelrooms_hotelroom_classes">
+    <End Role="hotelroom_classes" Type="Self.hotelroom_classes" Multiplicity="1" />
+    <End Role="hotelrooms" Type="Self.hotelrooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hotelroom_classes">
+        <PropertyRef Name="id_class" />
+      </Principal>
+      <Dependent Role="hotelrooms">
+        <PropertyRef Name="id_class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_journal_table_do_table1">
+    <End Role="do_table" Type="Self.do_table" Multiplicity="1" />
+    <End Role="journal_table" Type="Self.journal_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="do_table">
+        <PropertyRef Name="id_do_table" />
+      </Principal>
+      <Dependent Role="journal_table">
+        <PropertyRef Name="id_do_table" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_journal_table_users">
+    <End Role="users" Type="Self.users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="journal_table" Type="Self.journal_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="login" />
+      </Principal>
+      <Dependent Role="journal_table">
+        <PropertyRef Name="login_users" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_listresidents_hotelrooms">
+    <End Role="hotelrooms" Type="Self.hotelrooms" Multiplicity="1" />
+    <End Role="listresidents" Type="Self.listresidents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hotelrooms">
+        <PropertyRef Name="number_room" />
+      </Principal>
+      <Dependent Role="listresidents">
+        <PropertyRef Name="number_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_listresidents_residents">
+    <End Role="residents" Type="Self.residents" Multiplicity="1" />
+    <End Role="listresidents" Type="Self.listresidents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="residents">
+        <PropertyRef Name="passport" />
+      </Principal>
+      <Dependent Role="listresidents">
+        <PropertyRef Name="passport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_residents_gender_table">
+    <End Role="gender_table" Type="Self.gender_table" Multiplicity="1" />
+    <End Role="residents" Type="Self.residents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender_table">
+        <PropertyRef Name="gend_id" />
+      </Principal>
+      <Dependent Role="residents">
+        <PropertyRef Name="gend_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_users_type">
+    <End Role="users_type" Type="Self.users_type" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users_type">
+        <PropertyRef Name="id_users_type" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="id_users_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Таблица1_hardware_table">
+    <End Role="hardware_table" Type="Self.hardware_table" Multiplicity="0..1" />
+    <End Role="room_hardware" Type="Self.room_hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hardware_table">
+        <PropertyRef Name="hardware_id" />
+      </Principal>
+      <Dependent Role="room_hardware">
+        <PropertyRef Name="hardware_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Таблица1_hotelrooms">
+    <End Role="hotelrooms" Type="Self.hotelrooms" Multiplicity="0..1" />
+    <End Role="room_hardware" Type="Self.room_hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hotelrooms">
+        <PropertyRef Name="number_room" />
+      </Principal>
+      <Dependent Role="room_hardware">
+        <PropertyRef Name="number_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище HotelBaseModelContainer">
+    <EntitySet Name="do_table" EntityType="Self.do_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gender_table" EntityType="Self.gender_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hardware_table" EntityType="Self.hardware_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hotelroom_classes" EntityType="Self.hotelroom_classes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hotelrooms" EntityType="Self.hotelrooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="journal_table" EntityType="Self.journal_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="listresidents" EntityType="Self.listresidents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="residents" EntityType="Self.residents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="room_hardware" EntityType="Self.room_hardware" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users_type" EntityType="Self.users_type" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_hardware_table_hotelrooms" Association="Self.FK_hardware_table_hotelrooms">
+      <End Role="hotelrooms" EntitySet="hotelrooms" />
+      <End Role="hardware_table" EntitySet="hardware_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hotelrooms_hotelroom_classes" Association="Self.FK_hotelrooms_hotelroom_classes">
+      <End Role="hotelroom_classes" EntitySet="hotelroom_classes" />
+      <End Role="hotelrooms" EntitySet="hotelrooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_journal_table_do_table1" Association="Self.FK_journal_table_do_table1">
+      <End Role="do_table" EntitySet="do_table" />
+      <End Role="journal_table" EntitySet="journal_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_journal_table_users" Association="Self.FK_journal_table_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="journal_table" EntitySet="journal_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_listresidents_hotelrooms" Association="Self.FK_listresidents_hotelrooms">
+      <End Role="hotelrooms" EntitySet="hotelrooms" />
+      <End Role="listresidents" EntitySet="listresidents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_listresidents_residents" Association="Self.FK_listresidents_residents">
+      <End Role="residents" EntitySet="residents" />
+      <End Role="listresidents" EntitySet="listresidents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_residents_gender_table" Association="Self.FK_residents_gender_table">
+      <End Role="gender_table" EntitySet="gender_table" />
+      <End Role="residents" EntitySet="residents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_users_type" Association="Self.FK_users_users_type">
+      <End Role="users_type" EntitySet="users_type" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Таблица1_hardware_table" Association="Self.FK_Таблица1_hardware_table">
+      <End Role="hardware_table" EntitySet="hardware_table" />
+      <End Role="room_hardware" EntitySet="room_hardware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Таблица1_hotelrooms" Association="Self.FK_Таблица1_hotelrooms">
+      <End Role="hotelrooms" EntitySet="hotelrooms" />
+      <End Role="room_hardware" EntitySet="room_hardware" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

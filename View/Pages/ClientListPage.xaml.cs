@@ -42,5 +42,18 @@ namespace HotelApp.View.Pages
         {
 
         }
+
+        private void ClientRegClick_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new ClientRegistrationPage());
+            journal_table newJournal = new journal_table()
+            {
+                login_users = App.CurrentUser.login,
+                journal_datetime = DateTime.Now,
+                id_do_table = 1002
+            };
+            db.context.journal_table.Add(newJournal);
+            db.context.SaveChanges();
+        }
     }
 }

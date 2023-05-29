@@ -140,6 +140,9 @@
     <Compile Include="View\Pages\ClientListPage.xaml.cs">
       <DependentUpon>ClientListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\ClientRegistrationPage.xaml.cs">
+      <DependentUpon>ClientRegistrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\JournalPage.xaml.cs">
       <DependentUpon>JournalPage.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\ClientListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ClientRegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,6 +240,7 @@
     <Folder Include="Assets\Dictionaries\" />
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Images\" />
+    <Folder Include="Data\Scanpass\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\Windows\" />
   </ItemGroup>
