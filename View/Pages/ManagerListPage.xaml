@@ -34,22 +34,17 @@
             </StackPanel>
         </StackPanel>
 
-        <ListView x:Name="ManagerListView" Margin="10 10 10 10"  Grid.Row="1" Grid.Column="1">
+        <ListView x:Name="ManagerListView" Margin="10 10 10 10"  Grid.Row="1" Grid.Column="1" Height="345" VerticalAlignment="Bottom">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                        <UniformGrid Columns="5">
                         <TextBlock Text="{Binding last_name}"/>
                         <TextBlock Text="{Binding first_name}" Grid.Column="1"/>
                         <TextBlock Text="{Binding login}" Grid.Column="2"/>
                         <TextBlock Text="{Binding pass}" Grid.Column="3"/>
                         <TextBlock Text="{Binding users_type.type}" Grid.Column="4"/>
+                        </UniformGrid>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

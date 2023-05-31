@@ -34,8 +34,11 @@ namespace HotelApp.View.Pages
             InitializeComponent();
 			FilterData();
 			ManagerListView.ItemsSource = db.context.users.ToList();
+            TypeManagerFilterComboBox.ItemsSource = db.context.users_type.ToList();
+            TypeManagerFilterComboBox.DisplayMemberPath = "type";
+            TypeManagerFilterComboBox.SelectedValuePath = "id_users_type";
 
-		}
+        }
 
 
         private void ManagerListBack_Click(object sender, RoutedEventArgs e)
@@ -89,5 +92,6 @@ namespace HotelApp.View.Pages
         {
             FilterData();
         }
+
     }
 }

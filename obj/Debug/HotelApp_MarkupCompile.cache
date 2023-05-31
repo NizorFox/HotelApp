@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Student\Source\Repos\HotelApp\obj\Debug\
+C:\Users\Admin\Source\Repos\HotelApp3\obj\Debug\
 HotelApp
 none
 false
 DEBUG;TRACE
-C:\Users\Student\Source\Repos\HotelApp\App.xaml
-8354482724
-2739969757
-30-792669394
-21-1088656909
-View\Pages\AuthPage.xaml;View\Pages\ClientListPage.xaml;View\Pages\ClientRegistrationPage.xaml;View\Pages\JournalPage.xaml;View\Pages\MainMenuPage.xaml;MainWindow.xaml;View\Pages\ManagerListPage.xaml;View\Pages\ManagerRegistrationPage.xaml;
+C:\Users\Admin\Source\Repos\HotelApp3\App.xaml
+10-1787368247
+2-1556844510
+291073657290
+21188309578
+View\Pages\AuthPage.xaml;View\Pages\ClientListPage.xaml;View\Pages\ClientRegistrationPage.xaml;View\Pages\HotelRoomAddPage.xaml;View\Pages\HotelRoomsPage.xaml;View\Pages\JournalPage.xaml;View\Pages\MainMenuPage.xaml;MainWindow.xaml;View\Pages\ManagerListPage.xaml;View\Pages\ManagerRegistrationPage.xaml;
 
 False
 

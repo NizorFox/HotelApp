@@ -22,26 +22,35 @@ namespace HotelApp.View.Pages
 	public partial class ClientListPage : Page
 	{
 		Core db = new Core();
+        List<residents> residents;
+
+
+
 		public ClientListPage()
 		{
 			InitializeComponent();
 			ClientListView.ItemsSource = db.context.residents.ToList();
-		}
+            //PickClientHotelRoomComboBox.ItemsSource = db.context.hotelrooms.ToList();
+            //PickClientHotelRoomComboBox.DisplayMemberPath = "number_room";
+            //PickClientHotelRoomComboBox.SelectedValuePath = "number_room";
+        }
 
 		private void ClientListBack_Click(object sender, RoutedEventArgs e)
 		{
 			this.NavigationService.Navigate(new MainMenuPage());
 		}
 
+        private void PassportManFilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FilterData();
+        }
+
         private void LoginManFilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            FilterData();
         }
 
-        private void TypeManagerFilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
 
         private void ClientRegClick_Click(object sender, RoutedEventArgs e)
         {
@@ -50,10 +59,47 @@ namespace HotelApp.View.Pages
             {
                 login_users = App.CurrentUser.login,
                 journal_datetime = DateTime.Now,
-                id_do_table = 1002
+                id_do_table = 7
             };
             db.context.journal_table.Add(newJournal);
             db.context.SaveChanges();
+        }
+
+        private void FilterData()
+        {
+            var passfilt = PassportManFilterTextBox.Text.ToLower();
+            residents = db.context.residents.ToList();
+            if (passfilt != String.Empty)
+            {
+                residents = residents.Where(x => x.passport.ToLower().StartsWith(passfilt)).ToList();
+            }
+            else
+            {
+                residents = residents.ToList();
+            }
+
+            var lastnamefilt = LoginManFilterTextBox.Text.ToLower();
+            residents = db.context.residents.ToList();
+            if (lastnamefilt != String.Empty)
+            {
+                residents = residents.Where(x => x.last_name.ToLower().StartsWith(lastnamefilt) || x.first_name.ToLower().StartsWith(lastnamefilt) || x.patronymic.ToLower().StartsWith(lastnamefilt)).ToList();
+            }
+            else
+            {
+                residents = residents.ToList();
+            }
+
+            ClientListView.ItemsSource = residents;
+        }
+
+        private void ClientDeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PickClientHotelRoomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

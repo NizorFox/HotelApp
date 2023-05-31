@@ -18,7 +18,7 @@
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="430" Width="600" Orientation="Vertical">
                 <StackPanel VerticalAlignment="Top" Margin="10 10 10 0" Height="205">
-                    <Button Margin="10 10 10 10" Height="185" x:Name="NumberList" FontSize="28" Content="СПИСОК НОМЕРОВ"/>
+                    <Button Margin="10 10 10 10" Height="185" x:Name="NumberList" FontSize="28" Content="СПИСОК НОМЕРОВ" Click="NumberList_Click"/>
                 </StackPanel>
                 <StackPanel Margin="10 10 10 10" Height="205">
                     <Button Margin="10 10 10 10" Height="185" x:Name="ClientList" FontSize="28" Content="СПИСОК ПОСТОЯЛЬЦЕВ" Click="ClientList_Click"/>

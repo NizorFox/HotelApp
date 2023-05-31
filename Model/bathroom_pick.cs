@@ -12,21 +12,18 @@ namespace HotelApp.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class hardware_table
+    public partial class bathroom_pick
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public hardware_table()
+        public bathroom_pick()
         {
-            this.room_hardware = new HashSet<room_hardware>();
+            this.hotelrooms = new HashSet<hotelrooms>();
         }
     
-        public int hardware_id { get; set; }
-        public string hardware_name { get; set; }
-        public string hardware_count { get; set; }
-        public string number_room { get; set; }
+        public int id_bathroom { get; set; }
+        public string bathroom_type { get; set; }
     
-        public virtual hotelrooms hotelrooms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<room_hardware> room_hardware { get; set; }
+        public virtual ICollection<hotelrooms> hotelrooms { get; set; }
     }
 }
