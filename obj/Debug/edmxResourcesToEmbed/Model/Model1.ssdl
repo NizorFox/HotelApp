@@ -153,7 +153,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_listresidents_hotelrooms1">
+  <Association Name="FK_listresidents_hotelrooms">
     <End Role="hotelrooms" Type="Self.hotelrooms" Multiplicity="1" />
     <End Role="listresidents" Type="Self.listresidents" Multiplicity="*" />
     <ReferentialConstraint>
@@ -229,7 +229,7 @@
       <End Role="users" EntitySet="users" />
       <End Role="journal_table" EntitySet="journal_table" />
     </AssociationSet>
-    <AssociationSet Name="FK_listresidents_hotelrooms1" Association="Self.FK_listresidents_hotelrooms1">
+    <AssociationSet Name="FK_listresidents_hotelrooms" Association="Self.FK_listresidents_hotelrooms">
       <End Role="hotelrooms" EntitySet="hotelrooms" />
       <End Role="listresidents" EntitySet="listresidents" />
     </AssociationSet>

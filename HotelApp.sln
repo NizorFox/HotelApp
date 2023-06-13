@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelApp", "HotelApp.csproj", "{7FE4437F-DBF0-4E12-B814-0FC22BB74052}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckStringLibrary", "..\CheckStringLibrary\CheckStringLibrary.csproj", "{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7FE4437F-DBF0-4E12-B814-0FC22BB74052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FE4437F-DBF0-4E12-B814-0FC22BB74052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE4437F-DBF0-4E12-B814-0FC22BB74052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

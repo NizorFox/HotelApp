@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\Student\Source\Repos\NizorFox\HotelApp\obj\Debug\
+C:\Users\Student\Source\Repos\NizorFox\HotelApp\obj\Release\
 HotelApp
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Student\Source\Repos\NizorFox\HotelApp\App.xaml
 10-1539164662
 2739969757
@@ -16,5 +16,5 @@ C:\Users\Student\Source\Repos\NizorFox\HotelApp\App.xaml
 241006045083
 View\Pages\AuthPage.xaml;View\Pages\ClientListPage.xaml;View\Pages\ClientRegistrationPage.xaml;View\Pages\HotelRoomAddPage.xaml;View\Pages\HotelRoomsPage.xaml;View\Pages\JournalPage.xaml;View\Pages\MainMenuPage.xaml;MainWindow.xaml;View\Pages\ManagerListPage.xaml;View\Pages\ManagerRegistrationPage.xaml;
 
-False
+True
 

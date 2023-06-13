@@ -67,12 +67,12 @@ namespace HotelApp.View.Pages
 
         private void YesBathroomRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            check = 1;
+            check = 3;
         }
 
         private void NoBathroomRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            check = 2;
+            check = 4;
         }
 
         private void IDclassHotelRoomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
