@@ -39,7 +39,7 @@ namespace HotelApp.View.Pages
                 number_room = HotelRoomNumberTextBox.Text,
                 places = CountPlaceRoomTextBox.Text,
                 rooms = CountHotelRoomTextBox.Text,
-                id_class = IDclassHotelRoomComboBox.SelectedIndex +1,
+                id_class = IDclassHotelRoomComboBox.SelectedIndex + 1,
                 id_bathroom = check,
                 Equipment = EquipmentHotelRoomTextBox.Text,
                 Count = PriceHotelRoomTextBox.Text

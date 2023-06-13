@@ -34,7 +34,7 @@
   </EntityType>
   <EntityType Name="hotelrooms">
     <Key>
-      <PropertyRef Name="number_room" />
+      <PropertyRef Name="id_room" />
     </Key>
     <Property Name="number_room" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="places" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
@@ -43,9 +43,10 @@
     <Property Name="id_bathroom" Type="Int32" Nullable="false" />
     <Property Name="Equipment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Count" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_room" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="bathroom_pick" Relationship="Self.FK_hotelrooms_bathroom_pick" FromRole="hotelrooms" ToRole="bathroom_pick" />
     <NavigationProperty Name="hotelroom_classes" Relationship="Self.FK_hotelrooms_hotelroom_classes" FromRole="hotelrooms" ToRole="hotelroom_classes" />
-    <NavigationProperty Name="listresidents" Relationship="Self.FK_listresidents_hotelrooms" FromRole="hotelrooms" ToRole="listresidents" />
+    <NavigationProperty Name="listresidents" Relationship="Self.FK_listresidents_hotelrooms1" FromRole="hotelrooms" ToRole="listresidents" />
   </EntityType>
   <EntityType Name="journal_table">
     <Key>
@@ -63,11 +64,11 @@
       <PropertyRef Name="id_listres" />
     </Key>
     <Property Name="passport" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="number_room" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_room" Type="Int32" Nullable="false" />
     <Property Name="settlement_date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="eviction_date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="id_listres" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <NavigationProperty Name="hotelrooms" Relationship="Self.FK_listresidents_hotelrooms" FromRole="listresidents" ToRole="hotelrooms" />
+    <NavigationProperty Name="hotelrooms" Relationship="Self.FK_listresidents_hotelrooms1" FromRole="listresidents" ToRole="hotelrooms" />
     <NavigationProperty Name="residents" Relationship="Self.FK_listresidents_residents" FromRole="listresidents" ToRole="residents" />
   </EntityType>
   <EntityType Name="residents">
@@ -166,15 +167,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_listresidents_hotelrooms">
+  <Association Name="FK_listresidents_hotelrooms1">
     <End Role="hotelrooms" Type="Self.hotelrooms" Multiplicity="1" />
     <End Role="listresidents" Type="Self.listresidents" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="hotelrooms">
-        <PropertyRef Name="number_room" />
+        <PropertyRef Name="id_room" />
       </Principal>
       <Dependent Role="listresidents">
-        <PropertyRef Name="number_room" />
+        <PropertyRef Name="id_room" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -216,7 +217,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HotelBaseEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="HotelBaseEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="bathroom_pick" EntityType="Self.bathroom_pick" />
     <EntitySet Name="do_table" EntityType="Self.do_table" />
     <EntitySet Name="gender_table" EntityType="Self.gender_table" />
@@ -244,7 +245,7 @@
       <End Role="hotelroom_classes" EntitySet="hotelroom_classes" />
       <End Role="hotelrooms" EntitySet="hotelrooms" />
     </AssociationSet>
-    <AssociationSet Name="FK_listresidents_hotelrooms" Association="Self.FK_listresidents_hotelrooms">
+    <AssociationSet Name="FK_listresidents_hotelrooms1" Association="Self.FK_listresidents_hotelrooms1">
       <End Role="hotelrooms" EntitySet="hotelrooms" />
       <End Role="listresidents" EntitySet="listresidents" />
     </AssociationSet>

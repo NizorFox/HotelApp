@@ -5,47 +5,55 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HotelApp.View.Pages"
       mc:Ignorable="d" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ClientRegistrationPage">
 
-    <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel VerticalAlignment="Center" Width="220">
-                <Label Content="Введите номер пасспорта" FontSize="16"/>
-                <TextBox x:Name="PassportRegClientTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Введите фамилию" FontSize="16"/>
-                <TextBox x:Name="LastNameRegClientTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Введите имя" FontSize="16"/>
-                <TextBox x:Name="FirstNameRegClientTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Введите Отчество" FontSize="16"/>
-                <TextBox x:Name="PatronymicRegClientTextBox" Height="25" Width="200" FontSize="16" Text=""/>
+    <Grid Background="#eff2ec">
+        <Border  MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="760" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Width="220">
 
-                <Label Content="Введите дату рождения" FontSize="16"/>
-                <DatePicker x:Name="BirthDateRegClientDate" Height="25" Width="200" FontSize="16"/>
-                <Label Content="Укажите пол" FontSize="16"/>
-                <StackPanel Orientation="Horizontal">
-                    <RadioButton GroupName="GenderTyperRegClientRadioButton" x:Name="MaleGender" Content="Мужской" Height="25" Width="100" FontSize="16" Checked="MaleGender_Checked"/>
-                    <RadioButton GroupName="GenderTyperRegClientRadioButton" x:Name="FemaleGender" Content="Женский" Height="25" Width="100" FontSize="16" Checked="FemaleGender_Checked"/>
+                    <TextBox materialDesign:HintAssist.Hint="Введите номер паспорта" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="PassportRegClientTextBox" FontSize="16" Margin="0 0 0 10"/>
+
+                    <TextBox materialDesign:HintAssist.Hint="Введите фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="LastNameRegClientTextBox" FontSize="16" Margin="0 0 0 10" />
+
+                    <TextBox materialDesign:HintAssist.Hint="Введите имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="FirstNameRegClientTextBox" FontSize="16" Margin="0 0 0 10"/>
+
+                    <TextBox materialDesign:HintAssist.Hint="Введите отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="PatronymicRegClientTextBox" FontSize="16" Margin="0 0 0 10"/>
+
+                    <DatePicker materialDesign:HintAssist.Hint="Укажите дату рождения" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" x:Name="BirthDateRegClientDate" FontSize="16" Margin="0 0 0 10"/>
+
+                    <Label Content="Укажите пол" FontSize="16"/>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton GroupName="GenderTyperRegClientRadioButton" x:Name="MaleGender" Content="Мужской" Height="25" Width="100" FontSize="16" Checked="MaleGender_Checked"/>
+                        <RadioButton GroupName="GenderTyperRegClientRadioButton" x:Name="FemaleGender" Content="Женский" Height="25" Width="100" FontSize="16" Checked="FemaleGender_Checked"/>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-            <StackPanel VerticalAlignment="Center" Width="220">
-                <Label Content="Введите адрес" FontSize="16"/>
-                <TextBox x:Name="AdressRegClientTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Введите Номер Телефона" FontSize="16"/>
-                <TextBox x:Name="NumberRegClientTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Скан паспорта" FontSize="16"/>
-                <TextBox x:Name="ScanRegClientTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Цель прибытия" FontSize="16"/>
-                <TextBox x:Name="TargerRegClientTextBox" Height="81" Width="200" FontSize="16" Text=""/>
-                <Label Content="Откуда узнал" FontSize="16"/>
-                <TextBox x:Name="HowRegClientTextBox" Height="25" Width="200" FontSize="16" Text=""/>
+                <StackPanel Width="220" Margin="20 0 0 0">
 
-            </StackPanel>
-            <StackPanel VerticalAlignment="Center" Width="220">
-                <Button Margin="0 25 0 0" Height="25" Width="200" x:Name="ClientRegButton" Content="Зарегистрировать" Click="ClientRegButton_Click"/>
-                <Button Margin="0 25 0 0" Height="25" Width="200" x:Name="ClientBackRegButton" Content="Назад" Click="ClientBackRegButton_Click"/>
-            </StackPanel>
+                    <TextBox materialDesign:HintAssist.Hint="Введите адрес" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="AdressRegClientTextBox" FontSize="16" Margin="0 0 0 10"/>
+
+                    <TextBox materialDesign:HintAssist.Hint="Введите номер телефона" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="NumberRegClientTextBox" FontSize="16" Margin="0 0 0 10"/>
+
+                    <TextBox materialDesign:HintAssist.Hint="Вставьте скан паспорта" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="ScanRegClientTextBox" FontSize="16" Margin="0 0 0 10"/>
+
+                    <TextBox materialDesign:HintAssist.Hint="Укажите цель прибытия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="TargerRegClientTextBox" FontSize="16" Margin="0 0 0 10"/>
+
+                    <TextBox materialDesign:HintAssist.Hint="Укажите источник информации" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="HowRegClientTextBox" FontSize="16" Margin="0 0 0 10"/>
+
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" Width="220" Margin="20 0 0 0">
+                    <TextBlock Text="Регистрация" FontSize="30" FontWeight="ExtraBold" Margin="10 0 0 5"/>
+                    <TextBlock Text="посетителя" FontSize="30" FontWeight="ExtraBold" Margin="10 0 0 0"/>
+                    <Button Margin="0 25 0 0" Height="25" Width="200" x:Name="ClientRegButton" Content="Зарегистрировать" Click="ClientRegButton_Click" Background="#d25238" BorderBrush="#d25238"/>
+                    <Button Margin="0 25 0 0" Height="25" Width="200" x:Name="ClientBackRegButton" Content="Назад" Click="ClientBackRegButton_Click" Background="#d25238" BorderBrush="#d25238"/>
+                </StackPanel>
        
-        </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

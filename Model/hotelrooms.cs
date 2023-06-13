@@ -27,6 +27,7 @@ namespace HotelApp.Model
         public int id_bathroom { get; set; }
         public string Equipment { get; set; }
         public string Count { get; set; }
+        public int id_room { get; set; }
     
         public virtual bathroom_pick bathroom_pick { get; set; }
         public virtual hotelroom_classes hotelroom_classes { get; set; }

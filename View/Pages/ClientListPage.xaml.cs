@@ -29,10 +29,10 @@ namespace HotelApp.View.Pages
 		public ClientListPage()
 		{
 			InitializeComponent();
+
 			ClientListView.ItemsSource = db.context.residents.ToList();
-            //PickClientHotelRoomComboBox.ItemsSource = db.context.hotelrooms.ToList();
-            //PickClientHotelRoomComboBox.DisplayMemberPath = "number_room";
-            //PickClientHotelRoomComboBox.SelectedValuePath = "number_room";
+            //PickClientHotelRoomComboBox.ItemsSource = db.context.hotelrooms.Select(x => x.id_room).ToList();
+
         }
 
 		private void ClientListBack_Click(object sender, RoutedEventArgs e)
@@ -94,7 +94,11 @@ namespace HotelApp.View.Pages
 
         private void ClientDeleteButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string idPassport = Convert.ToString((sender as Button).Tag.ToString());
+            var client = db.context.residents.Where(x => x.passport == idPassport).First();
+            db.context.residents.Remove(client);
+            db.context.SaveChanges();
+            ClientListView.ItemsSource = db.context.residents.ToList();
         }
 
         private void PickClientHotelRoomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace HotelApp.Model
 {
-   
-        public class Core
-        {
-            public HotelBaseEntities2 context = new HotelBaseEntities2();
-        }
-    
+
+    public class Core
+    {
+        public HotelBaseEntities3 context = new HotelBaseEntities3();
+    }
+
 }

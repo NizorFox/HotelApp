@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ClientListPage">
 
-    <Grid>
+    <Grid Background="#eff2ec">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="5*"/>
@@ -19,14 +19,14 @@
 
         </Grid.RowDefinitions>
 
-        <StackPanel >
+        <StackPanel Background="White">
 
-            <Button Margin="0 10 0 0"   x:Name="ClientListBack" FontSize="13" Content="Назад" Click="ClientListBack_Click" ></Button>
-            <Button Margin="0 10 0 0"   x:Name="ClientRegClick" FontSize="13" Content="Регистрация" Click="ClientRegClick_Click" ></Button>
+            <Button Margin="0 10 0 0"   x:Name="ClientListBack" FontSize="13" Content="Назад" Click="ClientListBack_Click" Background="#d25238" BorderBrush="#d25238"></Button>
+            <Button Margin="0 10 0 0"   x:Name="ClientRegClick" FontSize="13" Content="Регистрация" Click="ClientRegClick_Click" Background="#d25238" BorderBrush="#d25238"></Button>
 
         </StackPanel>
 
-        <StackPanel    Grid.Column="1">
+        <StackPanel    Grid.Column="1" Background="White">
             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 25 10 0">
                 <TextBlock Margin="0 0 10 0" FontSize="13">ФИЛЬТР:</TextBlock>
                 <TextBlock Margin="0 0 10 0" FontSize="13">Номер паспорта:</TextBlock>
@@ -36,10 +36,10 @@
             </StackPanel>
         </StackPanel>
 
-        <ListView x:Name="ClientListView" Margin="10,0,10,10"  Grid.Row="1" Grid.Column="1" Height="345" VerticalAlignment="Bottom" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView x:Name="ClientListView" Margin="10,10,10,10"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <UniformGrid Columns="7">
+                    <UniformGrid Columns="13">
 
                         <TextBlock Text="{Binding passport}"/>
                         <TextBlock Text="{Binding last_name}"/>
@@ -52,8 +52,8 @@
                         <TextBlock Text="{Binding scanpass}"/>
                         <TextBlock Text="{Binding destination}"/>
                         <TextBlock Text="{Binding info}"/>
-                        <ComboBox x:Name="PickClientHotelRoomComboBox" SelectionChanged="PickClientHotelRoomComboBox_SelectionChanged"/>
-                        <Button x:Name="ClientDeleteButton" Content="X" Click="ClientDeleteButton_Click"/>
+                        <ComboBox x:Name="PickClientHotelRoomComboBox" SelectionChanged="PickClientHotelRoomComboBox_SelectionChanged" BindingGroup="{Binding id_room}"/>
+                        <Button x:Name="ClientDeleteButton" Content="X" Tag="{Binding passport}" Click="ClientDeleteButton_Click" Background="#d25238" BorderBrush="#d25238"/>
                     </UniformGrid>
                 </DataTemplate>
             </ListView.ItemTemplate>

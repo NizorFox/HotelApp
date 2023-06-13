@@ -30,7 +30,7 @@
   </EntityType>
   <EntityType Name="hotelrooms">
     <Key>
-      <PropertyRef Name="number_room" />
+      <PropertyRef Name="id_room" />
     </Key>
     <Property Name="number_room" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="places" Type="varchar" MaxLength="4" Nullable="false" />
@@ -39,6 +39,7 @@
     <Property Name="id_bathroom" Type="int" Nullable="false" />
     <Property Name="Equipment" Type="nvarchar" MaxLength="50" />
     <Property Name="Count" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="id_room" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="journal_table">
     <Key>
@@ -54,7 +55,7 @@
       <PropertyRef Name="id_listres" />
     </Key>
     <Property Name="passport" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="number_room" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="id_room" Type="int" Nullable="false" />
     <Property Name="settlement_date" Type="datetime" Nullable="false" />
     <Property Name="eviction_date" Type="datetime" Nullable="false" />
     <Property Name="id_listres" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -152,15 +153,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_listresidents_hotelrooms">
+  <Association Name="FK_listresidents_hotelrooms1">
     <End Role="hotelrooms" Type="Self.hotelrooms" Multiplicity="1" />
     <End Role="listresidents" Type="Self.listresidents" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="hotelrooms">
-        <PropertyRef Name="number_room" />
+        <PropertyRef Name="id_room" />
       </Principal>
       <Dependent Role="listresidents">
-        <PropertyRef Name="number_room" />
+        <PropertyRef Name="id_room" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -228,7 +229,7 @@
       <End Role="users" EntitySet="users" />
       <End Role="journal_table" EntitySet="journal_table" />
     </AssociationSet>
-    <AssociationSet Name="FK_listresidents_hotelrooms" Association="Self.FK_listresidents_hotelrooms">
+    <AssociationSet Name="FK_listresidents_hotelrooms1" Association="Self.FK_listresidents_hotelrooms1">
       <End Role="hotelrooms" EntitySet="hotelrooms" />
       <End Role="listresidents" EntitySet="listresidents" />
     </AssociationSet>

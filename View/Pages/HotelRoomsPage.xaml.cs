@@ -40,7 +40,12 @@ namespace HotelApp.View.Pages
         }
 
         private void HotelRoomDelete_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+            int idRoom = Convert.ToInt32((sender as Button).Tag.ToString());
+            var room = db.context.hotelrooms.Where(x => x.id_room == idRoom).First();
+            db.context.hotelrooms.Remove(room);
+            db.context.SaveChanges();
+            HotelRoomsListView.ItemsSource = db.context.hotelrooms.ToList();
 
         }
 

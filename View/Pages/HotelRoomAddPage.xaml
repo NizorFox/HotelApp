@@ -5,38 +5,36 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HotelApp.View.Pages"
       mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HotelRoomAddPage">
 
-    <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel VerticalAlignment="Center" Width="220">
-                <Label Content="Введите номер комнаты" FontSize="16"/>
-                <TextBox x:Name="HotelRoomNumberTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Введите количество мест" FontSize="16"/>
-                <TextBox x:Name="CountPlaceRoomTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Введите количество комнат" FontSize="16"/>
-                <TextBox x:Name="CountHotelRoomTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-                <Label Content="Укажите класс номера" FontSize="16"/>
-                <ComboBox x:Name="IDclassHotelRoomComboBox" Height="25" Width="200" FontSize="16" SelectionChanged="IDclassHotelRoomComboBox_SelectionChanged"/>
-                <Label Content="Укажите наличие душевой" FontSize="16"/>
-                <StackPanel Orientation="Horizontal">
-                    <RadioButton GroupName="CountBathroomRadioButton" Content="Да" Height="25" Width="100" FontSize="16" x:Name="YesBathroomRadioButton" Checked="YesBathroomRadioButton_Checked"/>
-                    <RadioButton GroupName="CountBathroomRadioButton" Content="Нет" Height="25" Width="100" FontSize="16" x:Name="NoBathroomRadioButton" Checked="NoBathroomRadioButton_Checked"/>
+    <Grid Background="#eff2ec">
+        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel VerticalAlignment="Center" Width="220">
+                    <TextBox materialDesign:HintAssist.Hint="Введите номер комнаты" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="HotelRoomNumberTextBox" FontSize="16" Margin="0 0 0 10"/>
+                    <TextBox materialDesign:HintAssist.Hint="Укажите количество места" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="CountPlaceRoomTextBox" FontSize="16" Margin="0 0 0 10"/>
+                    <TextBox materialDesign:HintAssist.Hint="Укажите количество комнат" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="CountHotelRoomTextBox" FontSize="16" Margin="0 0 0 10"/>
+                    <ComboBox materialDesign:HintAssist.Hint="Укажите класс номера" Style="{StaticResource MaterialDesignFloatingHintComboBox}" x:Name="IDclassHotelRoomComboBox" FontSize="16" Margin="0 0 0 10" SelectionChanged="IDclassHotelRoomComboBox_SelectionChanged"/>
+                        <Label Content="Укажите наличие душевой" FontSize="16"/>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton GroupName="CountBathroomRadioButton" Content="Да" Height="25" Width="100" FontSize="16" x:Name="YesBathroomRadioButton" Checked="YesBathroomRadioButton_Checked"/>
+                        <RadioButton GroupName="CountBathroomRadioButton" Content="Нет" Height="25" Width="100" FontSize="16" x:Name="NoBathroomRadioButton" Checked="NoBathroomRadioButton_Checked"/>
+                    </StackPanel>
                 </StackPanel>
-
-
+                <StackPanel VerticalAlignment="Center" Width="220" Margin="20 0 0 0">
+                    <TextBlock Text="Добавить" FontSize="30" FontWeight="ExtraBold" Margin="30 0 0 0"/>
+                    <TextBlock Text="комнату" FontSize="30" FontWeight="ExtraBold" Margin="30 0 0 0"/>
+                    <TextBox materialDesign:HintAssist.Hint="Укажите оборудование" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="EquipmentHotelRoomTextBox" FontSize="16" Margin="0 0 0 10"/>
+                    <TextBox materialDesign:HintAssist.Hint="Укажите цену" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="PriceHotelRoomTextBox" FontSize="16" Margin="0 0 0 10"/>
+                    <Button Margin="0 25 0 0" Height="25" Width="200" x:Name="HotelRoomAddButton" Content="Добавить" Click="HotelRoomAddButton_Click" Background="#d25238" BorderBrush="#d25238"/>
+                    <Button Margin="0 25 0 0" Height="25" Width="200" x:Name="HotelRoomBackAddButton" Content="Назад" Click="HotelRoomBackAddButton_Click" Background="#d25238" BorderBrush="#d25238"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel VerticalAlignment="Center" Width="220">
-                <Label Content="Укажите оборудование в номере" FontSize="16"/>
-                <TextBox x:Name="EquipmentHotelRoomTextBox" Height="95" Width="200" FontSize="16" Text=""/>
-                <Label Content="Укажите стоимость" FontSize="16"/>
-                <TextBox x:Name="PriceHotelRoomTextBox" Height="25" Width="200" FontSize="16" Text=""/>
-
-                <Button Margin="0 25 0 0" Height="25" Width="200" x:Name="HotelRoomAddButton" Content="Добавить" Click="HotelRoomAddButton_Click"/>
-                <Button Margin="0 25 0 0" Height="25" Width="200" x:Name="HotelRoomBackAddButton" Content="Назад" Click="HotelRoomBackAddButton_Click"/>
-            </StackPanel>
-
-        </StackPanel>
+        </Border>
     </Grid>
 </Page>
