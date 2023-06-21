@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище HotelBaseModelContainer" CdmEntityContainer="HotelBaseEntities3">
+  <EntityContainerMapping StorageEntityContainer="Хранилище HotelBaseModelContainer" CdmEntityContainer="HotelBaseEntities2">
     <EntitySetMapping Name="bathroom_pick">
       <EntityTypeMapping TypeName="HotelBaseModel.bathroom_pick">
         <MappingFragment StoreEntitySet="bathroom_pick">
@@ -61,7 +61,7 @@
       <EntityTypeMapping TypeName="HotelBaseModel.listresidents">
         <MappingFragment StoreEntitySet="listresidents">
           <ScalarProperty Name="passport" ColumnName="passport" />
-          <ScalarProperty Name="id_room" ColumnName="id_room" />
+          <ScalarProperty Name="number_room" ColumnName="number_room" />
           <ScalarProperty Name="settlement_date" ColumnName="settlement_date" />
           <ScalarProperty Name="eviction_date" ColumnName="eviction_date" />
           <ScalarProperty Name="id_listres" ColumnName="id_listres" />

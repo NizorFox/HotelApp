@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a371ff631ab346aaad7bb73798fd2676" Name="Diagram1">
+      <Diagram DiagramId="d6148dfbef654e2d990e7990fd065478" Name="Diagram1">
         <EntityTypeShape EntityType="HotelBaseModel.bathroom_pick" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelBaseModel.do_table" Width="1.5" PointX="8" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelBaseModel.gender_table" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
@@ -20,7 +20,7 @@
         <AssociationConnector Association="HotelBaseModel.FK_journal_table_do_table1" ManuallyRouted="false" />
         <AssociationConnector Association="HotelBaseModel.FK_residents_gender_table" ManuallyRouted="false" />
         <AssociationConnector Association="HotelBaseModel.FK_hotelrooms_hotelroom_classes" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelBaseModel.FK_listresidents_hotelrooms1" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelBaseModel.FK_listresidents_hotelrooms" ManuallyRouted="false" />
         <AssociationConnector Association="HotelBaseModel.FK_journal_table_users" ManuallyRouted="false" />
         <AssociationConnector Association="HotelBaseModel.FK_listresidents_residents" ManuallyRouted="false" />
         <AssociationConnector Association="HotelBaseModel.FK_users_users_type" ManuallyRouted="false" />

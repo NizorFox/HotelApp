@@ -145,6 +145,12 @@
     <Compile Include="View\Pages\ClientRegistrationPage.xaml.cs">
       <DependentUpon>ClientRegistrationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\ClientRoomLinkAddPage.xaml.cs">
+      <DependentUpon>ClientRoomLinkAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ClientRoomLinkPage.xaml.cs">
+      <DependentUpon>ClientRoomLinkPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\HotelRoomAddPage.xaml.cs">
       <DependentUpon>HotelRoomAddPage.xaml</DependentUpon>
     </Compile>
@@ -172,6 +178,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\ClientRegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ClientRoomLinkAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ClientRoomLinkPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

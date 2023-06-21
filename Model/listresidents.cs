@@ -15,7 +15,7 @@ namespace HotelApp.Model
     public partial class listresidents
     {
         public string passport { get; set; }
-        public int id_room { get; set; }
+        public string number_room { get; set; }
         public System.DateTime settlement_date { get; set; }
         public System.DateTime eviction_date { get; set; }
         public int id_listres { get; set; }

@@ -41,7 +41,15 @@ namespace HotelApp.View.Pages
 
 			db.context.users.Add(newUser);
 			db.context.SaveChanges();
-			this.NavigationService.Navigate(new ManagerListPage());
+            this.NavigationService.Navigate(new ManagerListPage());
+			journal_table newJournal = new journal_table()
+			{
+				login_users = App.CurrentUser.login,
+				journal_datetime = DateTime.Now,
+				id_do_table = 12
+			};
+			db.context.journal_table.Add(newJournal);
+			db.context.SaveChanges();
 		}
 
 		private void BackRegButton_Click(object sender, RoutedEventArgs e)

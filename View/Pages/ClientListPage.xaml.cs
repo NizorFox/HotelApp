@@ -31,7 +31,6 @@ namespace HotelApp.View.Pages
 			InitializeComponent();
 
 			ClientListView.ItemsSource = db.context.residents.ToList();
-            //PickClientHotelRoomComboBox.ItemsSource = db.context.hotelrooms.Select(x => x.id_room).ToList();
 
         }
 
@@ -99,11 +98,32 @@ namespace HotelApp.View.Pages
             db.context.residents.Remove(client);
             db.context.SaveChanges();
             ClientListView.ItemsSource = db.context.residents.ToList();
+            journal_table newJournal = new journal_table()
+            {
+                login_users = App.CurrentUser.login,
+                journal_datetime = DateTime.Now,
+                id_do_table = 16
+            };
+            db.context.journal_table.Add(newJournal);
+            db.context.SaveChanges();
         }
 
         private void PickClientHotelRoomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ClientRoomClick_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new ClientRoomLinkPage());
+            journal_table newJournal = new journal_table()
+            {
+                login_users = App.CurrentUser.login,
+                journal_datetime = DateTime.Now,
+                id_do_table = 10
+            };
+            db.context.journal_table.Add(newJournal);
+            db.context.SaveChanges();
         }
     }
 }

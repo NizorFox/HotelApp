@@ -25,12 +25,12 @@
     <Key>
       <PropertyRef Name="id_class" />
     </Key>
-    <Property Name="id_class" Type="int" Nullable="false" />
+    <Property Name="id_class" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="class" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="hotelrooms">
     <Key>
-      <PropertyRef Name="id_room" />
+      <PropertyRef Name="number_room" />
     </Key>
     <Property Name="number_room" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="places" Type="varchar" MaxLength="4" Nullable="false" />
@@ -55,7 +55,7 @@
       <PropertyRef Name="id_listres" />
     </Key>
     <Property Name="passport" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="id_room" Type="int" Nullable="false" />
+    <Property Name="number_room" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="settlement_date" Type="datetime" Nullable="false" />
     <Property Name="eviction_date" Type="datetime" Nullable="false" />
     <Property Name="id_listres" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -72,7 +72,7 @@
     <Property Name="gend_id" Type="int" Nullable="false" />
     <Property Name="address" Type="char" MaxLength="50" Nullable="false" />
     <Property Name="number_phone" Type="varchar" MaxLength="11" />
-    <Property Name="scanpass" Type="char" MaxLength="255" Nullable="false" />
+    <Property Name="scanpass" Type="varbinary(max)" />
     <Property Name="destination" Type="nvarchar" MaxLength="255" />
     <Property Name="info" Type="nvarchar" MaxLength="255" Nullable="false" />
   </EntityType>
@@ -158,10 +158,10 @@
     <End Role="listresidents" Type="Self.listresidents" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="hotelrooms">
-        <PropertyRef Name="id_room" />
+        <PropertyRef Name="number_room" />
       </Principal>
       <Dependent Role="listresidents">
-        <PropertyRef Name="id_room" />
+        <PropertyRef Name="number_room" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

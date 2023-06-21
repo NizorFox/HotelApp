@@ -46,7 +46,14 @@ namespace HotelApp.View.Pages
             db.context.hotelrooms.Remove(room);
             db.context.SaveChanges();
             HotelRoomsListView.ItemsSource = db.context.hotelrooms.ToList();
-
+            journal_table newJournal = new journal_table()
+            {
+                login_users = App.CurrentUser.login,
+                journal_datetime = DateTime.Now,
+                id_do_table = 17
+            };
+            db.context.journal_table.Add(newJournal);
+            db.context.SaveChanges();
         }
 
         private void RoomAddButton_Click(object sender, RoutedEventArgs e)

@@ -42,7 +42,7 @@ namespace HotelApp.View.Pages
                 gend_id = check,
                 address = AdressRegClientTextBox.Text,
                 number_phone= NumberRegClientTextBox.Text,
-                scanpass = ScanRegClientTextBox.Text,
+                //scanpass = ScanRegClientTextBox.Text,
                 destination = TargerRegClientTextBox.Text,
                 info = HowRegClientTextBox.Text,
             };
@@ -50,6 +50,14 @@ namespace HotelApp.View.Pages
             db.context.residents.Add(newResident);
             db.context.SaveChanges();
             this.NavigationService.Navigate(new ClientListPage());
+            journal_table newJournal = new journal_table()
+            {
+                login_users = App.CurrentUser.login,
+                journal_datetime = DateTime.Now,
+                id_do_table = 14
+            };
+            db.context.journal_table.Add(newJournal);
+            db.context.SaveChanges();
         }
 
         private void ClientBackRegButton_Click(object sender, RoutedEventArgs e)

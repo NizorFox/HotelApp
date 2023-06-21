@@ -28,7 +28,7 @@ namespace HotelApp.Model
         public int gend_id { get; set; }
         public string address { get; set; }
         public string number_phone { get; set; }
-        public string scanpass { get; set; }
+        public byte[] scanpass { get; set; }
         public string destination { get; set; }
         public string info { get; set; }
     

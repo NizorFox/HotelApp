@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelApp", "HotelApp.csproj", "{7FE4437F-DBF0-4E12-B814-0FC22BB74052}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckStringLibrary", "..\CheckStringLibrary\CheckStringLibrary.csproj", "{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckAppLibrary", "..\CheckAppLibrary\CheckAppLibrary.csproj", "{CDAE3ABA-5DE7-46BB-BE5D-548C2DA1D1A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{7FE4437F-DBF0-4E12-B814-0FC22BB74052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FE4437F-DBF0-4E12-B814-0FC22BB74052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE4437F-DBF0-4E12-B814-0FC22BB74052}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C96C2918-D077-4F9F-8A7A-0AEA771EEF03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDAE3ABA-5DE7-46BB-BE5D-548C2DA1D1A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDAE3ABA-5DE7-46BB-BE5D-548C2DA1D1A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDAE3ABA-5DE7-46BB-BE5D-548C2DA1D1A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDAE3ABA-5DE7-46BB-BE5D-548C2DA1D1A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
